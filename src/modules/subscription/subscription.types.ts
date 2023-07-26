@@ -141,6 +141,14 @@ export interface LemonsqueezySubscription {
      * The name of the variant
      */
     variant_name: string;
+    /**
+     * Lowercase brand of the card used to pay for the latest subscription payment. One of visa, mastercard, amex, discover, jcb, diners or unionpay. Will be empty for non-card payments.
+     */
+    card_brand: string;
+    /**
+     * The last 4 digits of the card used to pay for the latest subscription payment. Will be empty for non-card payments.
+     */
+    card_last_four: string;
   };
   type: LemonsqueezyDataType.subscriptions;
   id: string;
@@ -224,4 +232,11 @@ export interface UpdateSubscriptionOptions extends SharedLemonsqueezyOptions {
 }
 
 export type UpdateSubscriptionResult =
+  BaseLemonsqueezyResponse<LemonsqueezySubscription>;
+
+export interface CancelSubscriptionOptions extends SharedLemonsqueezyOptions {
+  id: string;
+}
+
+export type CancelSubscriptionResult =
   BaseLemonsqueezyResponse<LemonsqueezySubscription>;

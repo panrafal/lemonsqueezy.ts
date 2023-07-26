@@ -28,6 +28,7 @@ import {
   retrieveSubscriptionInvoice,
   retrieveVariant,
   updateSubscription,
+  cancelSubscription,
 } from "~/modules";
 
 import type {
@@ -60,6 +61,7 @@ import type {
   RetrieveSubscriptionOptions,
   RetrieveVariantOptions,
   UpdateSubscriptionOptions,
+  CancelSubscriptionOptions,
 } from "~/modules";
 
 export class LemonsqueezyClient {
@@ -369,6 +371,24 @@ export class LemonsqueezyClient {
    */
   public async updateSubscription(options: UpdateSubscriptionOptions) {
     return updateSubscription({
+      apiKey: this._apiKey,
+      ...options,
+    });
+  }
+
+  /**
+   * Cancel subscription
+   *
+   * @description Cancel an active subscription
+   *
+   * @docs https://docs.lemonsqueezy.com/api/subscriptions#cancel-a-subscription
+   *
+   * @param {String} options.id - The ID of the subscription to cancel
+   *
+   * @returns A subscription object
+   */
+  public async cancelSubscription(options: CancelSubscriptionOptions) {
+    return cancelSubscription({
       apiKey: this._apiKey,
       ...options,
     });

@@ -2,9 +2,10 @@ import {
   listAllSubscriptions,
   retrieveSubscription,
   updateSubscription,
+  cancelSubscription,
 } from "./subscription.action";
 
-export { listAllSubscriptions, retrieveSubscription, updateSubscription };
+export { listAllSubscriptions, retrieveSubscription, updateSubscription, cancelSubscription };
 
 export type {
   LemonsqueezySubscription,
@@ -14,10 +15,13 @@ export type {
   RetrieveSubscriptionResult,
   UpdateSubscriptionOptions,
   UpdateSubscriptionResult,
+  CancelSubscriptionOptions,
+  CancelSubscriptionResult,
 } from "./subscription.types";
 
 export default {
   listAllSubscriptions,
   retrieveSubscription,
   updateSubscription,
+  cancelSubscription,
 } as const;

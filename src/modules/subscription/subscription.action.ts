@@ -1,6 +1,3 @@
-import { LemonsqueezyDataType } from "~/shared";
-import { requestLemonSqueeze } from "~/shared";
-
 import type {
   ListAllSubscriptionsOptions,
   ListAllSubscriptionsResult,
@@ -8,7 +5,11 @@ import type {
   RetrieveSubscriptionResult,
   UpdateSubscriptionOptions,
   UpdateSubscriptionResult,
+  CancelSubscriptionOptions,
+  CancelSubscriptionResult,
 } from "./subscription.types";
+import { LemonsqueezyDataType } from "~/shared";
+import { requestLemonSqueeze } from "~/shared";
 import type { SharedModuleOptions } from "~/shared";
 
 /**
@@ -113,6 +114,29 @@ export async function updateSubscription(
     },
     path: `/subscriptions/${id}`,
     method: "PATCH",
+    ...rest,
+  });
+}
+
+/**
+ * Cancel subscription
+ *
+ * @description Cancel an active subscription
+ *
+ * @docs https://docs.lemonsqueezy.com/api/subscriptions#cancel-a-subscription
+ *
+ * @param {String} options.id - The ID of the subscription to cancel
+ *
+ * @returns A subscription object
+ */
+export async function cancelSubscription(
+  options: CancelSubscriptionOptions & SharedModuleOptions
+): Promise<CancelSubscriptionResult> {
+  const { id, ...rest } = options;
+
+  return requestLemonSqueeze<CancelSubscriptionResult>({
+    path: `/subscriptions/${id}`,
+    method: "DELETE",
     ...rest,
   });
 }

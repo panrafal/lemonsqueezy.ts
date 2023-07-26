@@ -27,4 +27,5 @@ export {
   retrieveSubscription,
   retrieveVariant,
   updateSubscription,
+  cancelSubscription,
 } from "./modules";
