@@ -1229,6 +1229,14 @@ interface LemonsqueezySubscription {
          * The name of the variant
          */
         variant_name: string;
+        /**
+         * Lowercase brand of the card used to pay for the latest subscription payment. One of visa, mastercard, amex, discover, jcb, diners or unionpay. Will be empty for non-card payments.
+         */
+        card_brand: string;
+        /**
+         * The last 4 digits of the card used to pay for the latest subscription payment. Will be empty for non-card payments.
+         */
+        card_last_four: string;
     };
     type: LemonsqueezyDataType.subscriptions;
     id: string;
@@ -1303,6 +1311,10 @@ interface UpdateSubscriptionOptions extends SharedLemonsqueezyOptions {
     variantId: string;
 }
 type UpdateSubscriptionResult = BaseLemonsqueezyResponse<LemonsqueezySubscription>;
+interface CancelSubscriptionOptions extends SharedLemonsqueezyOptions {
+    id: string;
+}
+type CancelSubscriptionResult = BaseLemonsqueezyResponse<LemonsqueezySubscription>;
 
 /**
  * @docs https://docs.lemonsqueezy.com/api/users#the-user-object
@@ -1766,6 +1778,18 @@ declare class LemonsqueezyClient {
      * @returns A subscription object
      */
     updateSubscription(options: UpdateSubscriptionOptions): Promise<UpdateSubscriptionResult>;
+    /**
+     * Cancel subscription
+     *
+     * @description Cancel an active subscription
+     *
+     * @docs https://docs.lemonsqueezy.com/api/subscriptions#cancel-a-subscription
+     *
+     * @param {String} options.id - The ID of the subscription to cancel
+     *
+     * @returns A subscription object
+     */
+    cancelSubscription(options: CancelSubscriptionOptions): Promise<CancelSubscriptionResult>;
     /**
      * Retrieve discount
      *

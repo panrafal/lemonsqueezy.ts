@@ -1150,6 +1150,14 @@ interface LemonsqueezySubscription {
          * The name of the variant
          */
         variant_name: string;
+        /**
+         * Lowercase brand of the card used to pay for the latest subscription payment. One of visa, mastercard, amex, discover, jcb, diners or unionpay. Will be empty for non-card payments.
+         */
+        card_brand: string;
+        /**
+         * The last 4 digits of the card used to pay for the latest subscription payment. Will be empty for non-card payments.
+         */
+        card_last_four: string;
     };
     type: LemonsqueezyDataType.subscriptions;
     id: string;
@@ -1224,6 +1232,10 @@ interface UpdateSubscriptionOptions extends SharedLemonsqueezyOptions {
     variantId: string;
 }
 type UpdateSubscriptionResult = BaseLemonsqueezyResponse<LemonsqueezySubscription>;
+interface CancelSubscriptionOptions extends SharedLemonsqueezyOptions {
+    id: string;
+}
+type CancelSubscriptionResult = BaseLemonsqueezyResponse<LemonsqueezySubscription>;
 
 /**
  * @docs https://docs.lemonsqueezy.com/api/users#the-user-object
@@ -1417,4 +1429,4 @@ interface RetrieveVariantOptions extends SharedLemonsqueezyOptions {
 }
 type RetrieveVariantResult = BaseLemonsqueezyResponse<LemonsqueezyVariant>;
 
-export { RetrieveVariantOptions as $, ListAllOrderItemsResult as A, BaseLemonsqueezyResponse as B, CreateCheckoutOptions as C, RetrieveOrderItemOptions as D, RetrieveOrderItemResult as E, ListAllProductsOptions as F, ListAllProductsResult as G, RetrieveProductOptions as H, RetrieveProductResult as I, ListAllStoresOptions as J, ListAllStoresResult as K, ListAllCheckoutsOptions as L, RetrieveStoreOptions as M, RetrieveStoreResult as N, ListAllSubscriptionsOptions as O, PaginatedBaseLemonsqueezyResponse as P, ListAllSubscriptionsResult as Q, RetrieveCheckoutOptions as R, SharedModuleOptions as S, RetrieveSubscriptionOptions as T, RetrieveSubscriptionResult as U, UpdateSubscriptionOptions as V, UpdateSubscriptionResult as W, GetUserOptions as X, GetUserResult as Y, ListAllVariantsOptions as Z, ListAllVariantsResult as _, CreateCheckoutResult as a, RetrieveVariantResult as a0, LemonsqueezyBillingAddress as a1, LemonsqueezyCheckout as a2, LemonsqueezyCheckoutData as a3, LemonsqueezyCheckoutOptions as a4, LemonsqueezyProductOptions as a5, LemonsqueezyDiscount as a6, LemonsqueezyFile as a7, LemonsqueezyLicenseKey as a8, LemonsqueezyLicenseKeyInstance as a9, LemonsqueezyOrder as aa, LemonsqueezyOrderItem as ab, LemonsqueezyProduct as ac, LemonsqueezyStore as ad, LemonsqueezySubscription as ae, LemonsqueezyUser as af, LemonsqueezyInterval as ag, LemonsqueezyVariant as ah, ListAllCheckoutsResult as b, RetrieveCheckoutResult as c, SharedLemonsqueezyOptions as d, LemonsqueezyDataType as e, ListAllDiscountsOptions as f, ListAllDiscountsResult as g, RetrieveDiscountOptions as h, RetrieveDiscountResult as i, ListAllFilesOptions as j, ListAllFilesResult as k, RetrieveFileOptions as l, RetrieveFileResult as m, ListAllLicenseKeysOptions as n, ListAllLicenseKeysResult as o, RetrieveLicenseKeyOptions as p, RetrieveLicenseKeyResult as q, ListAllLicenseKeyInstancesOptions as r, ListAllLicenseKeyInstancesResult as s, RetrieveLicenseKeyInstanceOptions as t, RetrieveLicenseKeyInstanceResult as u, ListAllOrdersOptions as v, ListAllOrdersResult as w, RetrieveOrderOptions as x, RetrieveOrderResult as y, ListAllOrderItemsOptions as z };
+export { ListAllVariantsOptions as $, ListAllOrderItemsResult as A, BaseLemonsqueezyResponse as B, CreateCheckoutOptions as C, RetrieveOrderItemOptions as D, RetrieveOrderItemResult as E, ListAllProductsOptions as F, ListAllProductsResult as G, RetrieveProductOptions as H, RetrieveProductResult as I, ListAllStoresOptions as J, ListAllStoresResult as K, ListAllCheckoutsOptions as L, RetrieveStoreOptions as M, RetrieveStoreResult as N, ListAllSubscriptionsOptions as O, PaginatedBaseLemonsqueezyResponse as P, ListAllSubscriptionsResult as Q, RetrieveCheckoutOptions as R, SharedModuleOptions as S, RetrieveSubscriptionOptions as T, RetrieveSubscriptionResult as U, UpdateSubscriptionOptions as V, UpdateSubscriptionResult as W, CancelSubscriptionOptions as X, CancelSubscriptionResult as Y, GetUserOptions as Z, GetUserResult as _, CreateCheckoutResult as a, ListAllVariantsResult as a0, RetrieveVariantOptions as a1, RetrieveVariantResult as a2, LemonsqueezyBillingAddress as a3, LemonsqueezyCheckout as a4, LemonsqueezyCheckoutData as a5, LemonsqueezyCheckoutOptions as a6, LemonsqueezyProductOptions as a7, LemonsqueezyDiscount as a8, LemonsqueezyFile as a9, LemonsqueezyLicenseKey as aa, LemonsqueezyLicenseKeyInstance as ab, LemonsqueezyOrder as ac, LemonsqueezyOrderItem as ad, LemonsqueezyProduct as ae, LemonsqueezyStore as af, LemonsqueezySubscription as ag, LemonsqueezyUser as ah, LemonsqueezyInterval as ai, LemonsqueezyVariant as aj, ListAllCheckoutsResult as b, RetrieveCheckoutResult as c, SharedLemonsqueezyOptions as d, LemonsqueezyDataType as e, ListAllDiscountsOptions as f, ListAllDiscountsResult as g, RetrieveDiscountOptions as h, RetrieveDiscountResult as i, ListAllFilesOptions as j, ListAllFilesResult as k, RetrieveFileOptions as l, RetrieveFileResult as m, ListAllLicenseKeysOptions as n, ListAllLicenseKeysResult as o, RetrieveLicenseKeyOptions as p, RetrieveLicenseKeyResult as q, ListAllLicenseKeyInstancesOptions as r, ListAllLicenseKeyInstancesResult as s, RetrieveLicenseKeyInstanceOptions as t, RetrieveLicenseKeyInstanceResult as u, ListAllOrdersOptions as v, ListAllOrdersResult as w, RetrieveOrderOptions as x, RetrieveOrderResult as y, ListAllOrderItemsOptions as z };

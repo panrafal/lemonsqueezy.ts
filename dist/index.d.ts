@@ -1,4 +1,4 @@
-import { C as CreateCheckoutOptions, S as SharedModuleOptions, a as CreateCheckoutResult, L as ListAllCheckoutsOptions, b as ListAllCheckoutsResult, R as RetrieveCheckoutOptions, c as RetrieveCheckoutResult, d as SharedLemonsqueezyOptions, P as PaginatedBaseLemonsqueezyResponse, B as BaseLemonsqueezyResponse, e as LemonsqueezyDataType, f as ListAllDiscountsOptions, g as ListAllDiscountsResult, h as RetrieveDiscountOptions, i as RetrieveDiscountResult, j as ListAllFilesOptions, k as ListAllFilesResult, l as RetrieveFileOptions, m as RetrieveFileResult, n as ListAllLicenseKeysOptions, o as ListAllLicenseKeysResult, p as RetrieveLicenseKeyOptions, q as RetrieveLicenseKeyResult, r as ListAllLicenseKeyInstancesOptions, s as ListAllLicenseKeyInstancesResult, t as RetrieveLicenseKeyInstanceOptions, u as RetrieveLicenseKeyInstanceResult, v as ListAllOrdersOptions, w as ListAllOrdersResult, x as RetrieveOrderOptions, y as RetrieveOrderResult, z as ListAllOrderItemsOptions, A as ListAllOrderItemsResult, D as RetrieveOrderItemOptions, E as RetrieveOrderItemResult, F as ListAllProductsOptions, G as ListAllProductsResult, H as RetrieveProductOptions, I as RetrieveProductResult, J as ListAllStoresOptions, K as ListAllStoresResult, M as RetrieveStoreOptions, N as RetrieveStoreResult, O as ListAllSubscriptionsOptions, Q as ListAllSubscriptionsResult, T as RetrieveSubscriptionOptions, U as RetrieveSubscriptionResult, V as UpdateSubscriptionOptions, W as UpdateSubscriptionResult, X as GetUserOptions, Y as GetUserResult, Z as ListAllVariantsOptions, _ as ListAllVariantsResult, $ as RetrieveVariantOptions, a0 as RetrieveVariantResult } from './types-65ac3648.js';
+import { C as CreateCheckoutOptions, S as SharedModuleOptions, a as CreateCheckoutResult, L as ListAllCheckoutsOptions, b as ListAllCheckoutsResult, R as RetrieveCheckoutOptions, c as RetrieveCheckoutResult, d as SharedLemonsqueezyOptions, P as PaginatedBaseLemonsqueezyResponse, B as BaseLemonsqueezyResponse, e as LemonsqueezyDataType, f as ListAllDiscountsOptions, g as ListAllDiscountsResult, h as RetrieveDiscountOptions, i as RetrieveDiscountResult, j as ListAllFilesOptions, k as ListAllFilesResult, l as RetrieveFileOptions, m as RetrieveFileResult, n as ListAllLicenseKeysOptions, o as ListAllLicenseKeysResult, p as RetrieveLicenseKeyOptions, q as RetrieveLicenseKeyResult, r as ListAllLicenseKeyInstancesOptions, s as ListAllLicenseKeyInstancesResult, t as RetrieveLicenseKeyInstanceOptions, u as RetrieveLicenseKeyInstanceResult, v as ListAllOrdersOptions, w as ListAllOrdersResult, x as RetrieveOrderOptions, y as RetrieveOrderResult, z as ListAllOrderItemsOptions, A as ListAllOrderItemsResult, D as RetrieveOrderItemOptions, E as RetrieveOrderItemResult, F as ListAllProductsOptions, G as ListAllProductsResult, H as RetrieveProductOptions, I as RetrieveProductResult, J as ListAllStoresOptions, K as ListAllStoresResult, M as RetrieveStoreOptions, N as RetrieveStoreResult, O as ListAllSubscriptionsOptions, Q as ListAllSubscriptionsResult, T as RetrieveSubscriptionOptions, U as RetrieveSubscriptionResult, V as UpdateSubscriptionOptions, W as UpdateSubscriptionResult, X as CancelSubscriptionOptions, Y as CancelSubscriptionResult, Z as GetUserOptions, _ as GetUserResult, $ as ListAllVariantsOptions, a0 as ListAllVariantsResult, a1 as RetrieveVariantOptions, a2 as RetrieveVariantResult } from './types-8d4f7964.js';
 
 /**
  * Create checkout
@@ -397,6 +397,18 @@ declare function retrieveSubscription(options: RetrieveSubscriptionOptions & Sha
  * @returns A subscription object
  */
 declare function updateSubscription(options: UpdateSubscriptionOptions & SharedModuleOptions): Promise<UpdateSubscriptionResult>;
+/**
+ * Cancel subscription
+ *
+ * @description Cancel an active subscription
+ *
+ * @docs https://docs.lemonsqueezy.com/api/subscriptions#cancel-a-subscription
+ *
+ * @param {String} options.id - The ID of the subscription to cancel
+ *
+ * @returns A subscription object
+ */
+declare function cancelSubscription(options: CancelSubscriptionOptions & SharedModuleOptions): Promise<CancelSubscriptionResult>;
 
 /**
  * @docs https://docs.lemonsqueezy.com/api/subscriptions#the-subscription-object
@@ -707,6 +719,18 @@ declare class LemonsqueezyClient {
      */
     updateSubscription(options: UpdateSubscriptionOptions): Promise<UpdateSubscriptionResult>;
     /**
+     * Cancel subscription
+     *
+     * @description Cancel an active subscription
+     *
+     * @docs https://docs.lemonsqueezy.com/api/subscriptions#cancel-a-subscription
+     *
+     * @param {String} options.id - The ID of the subscription to cancel
+     *
+     * @returns A subscription object
+     */
+    cancelSubscription(options: CancelSubscriptionOptions): Promise<CancelSubscriptionResult>;
+    /**
      * Retrieve discount
      *
      * @description Retrieves the discount with the given ID
@@ -862,4 +886,4 @@ declare class LemonsqueezyClient {
     listAllCustomers(options?: ListAllCustomersOptions): Promise<ListAllCustomersResult>;
 }
 
-export { LemonsqueezyClient, createCheckout, getUser, listAllCheckouts, listAllCustomers, listAllDiscounts, listAllFiles, listAllLicenseKeyInstances, listAllLicenseKeys, listAllOrderItems, listAllOrders, listAllProducts, listAllStores, listAllSubscriptions, listAllVariants, retrieveCheckout, retrieveCustomer, retrieveDiscount, retrieveFile, retrieveLicenseKey, retrieveLicenseKeyInstance, retrieveOrder, retrieveOrderItem, retrieveProduct, retrieveStore, retrieveSubscription, retrieveVariant, updateSubscription };
+export { LemonsqueezyClient, cancelSubscription, createCheckout, getUser, listAllCheckouts, listAllCustomers, listAllDiscounts, listAllFiles, listAllLicenseKeyInstances, listAllLicenseKeys, listAllOrderItems, listAllOrders, listAllProducts, listAllStores, listAllSubscriptions, listAllVariants, retrieveCheckout, retrieveCustomer, retrieveDiscount, retrieveFile, retrieveLicenseKey, retrieveLicenseKeyInstance, retrieveOrder, retrieveOrderItem, retrieveProduct, retrieveStore, retrieveSubscription, retrieveVariant, updateSubscription };
