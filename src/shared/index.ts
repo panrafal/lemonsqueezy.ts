@@ -1,4 +1,4 @@
-export { requestLemonSqueeze } from "./shared.actions";
+export { requestLemonSqueeze, LemonSqueezyError } from "./shared.actions";
 export { LemonsqueezyDataType } from "./shared.types";
 
 export type {

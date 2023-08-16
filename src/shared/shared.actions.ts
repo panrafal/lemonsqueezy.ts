@@ -9,6 +9,21 @@ import type {
   PaginatedBaseLemonsqueezyResponse,
 } from "~/shared";
 
+export class LemonSqueezyError extends Error {
+  constructor(
+    public status: number,
+    public message: string,
+    public errors?: Array<{
+      detail: string;
+      status: number;
+      title: string;
+    }>
+  ) {
+    super(message);
+    this.name = "LemonSqueezyError";
+  }
+}
+
 export async function requestLemonSqueeze<
   TResponse extends
     | BaseLemonsqueezyResponse<any>
@@ -64,11 +79,11 @@ export async function requestLemonSqueeze<
           title: string;
         }>;
       };
-      throw {
-        status: response.status,
-        message: response.statusText,
-        errors: errorsJson.errors,
-      };
+      throw new LemonSqueezyError(
+        response.status,
+        response.statusText,
+        errorsJson.errors,
+      );
     }
 
     const json = (await response.json()) as TResponse;

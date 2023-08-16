@@ -29,3 +29,4 @@ export {
   updateSubscription,
   cancelSubscription,
 } from "./modules";
+export { LemonSqueezyError } from "./shared";
